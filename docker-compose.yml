@@ -1,0 +1,29 @@
+services:
+  eureka:
+    image: eureka:latest
+    ports:
+      - "8761:8761"
+    networks:
+      - backend
+  service-a:
+    image: service-a:latest
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka:8761/eureka"
+    ports:
+      - "8081:8081"
+    links:
+      - eureka
+    networks:
+      - backend
+  service-b:
+    image: service-b:latest
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka:8761/eureka"
+    ports:
+      - "8082:8082"
+    links:
+      - eureka
+    networks:
+      - backend
+networks:
+  backend:
