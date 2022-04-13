@@ -33,5 +33,5 @@ You should see 2 instances listed, *EUREKA-CLIENT-A* and *EUREKA-CLIENT-B*.
 
 * all containers run in the same network, so they can address each other by hostname (e.g. *eureka-client*, *eureka-client-a*, *eureka-client-b*)
 * each Eureka client registers itself with the Eureka server, located via property `eureka.client.serviceUrl.defaultZone`
-* a Eureka client calls the other Eureka client through Eureka service discovery using a *feign client* (e.g. see *[EurekaClientBClient](eureka-client-a\src\main\java\com\tomgregory\eurekaexample\EurekaClientBClient.java)*)
+* a Eureka client calls the other Eureka client through Eureka service discovery using a *feign client* (e.g. see *[EurekaClientBClient](eureka-client-a/src/main/java/com/tomgregory/eurekaexample/EurekaClientBClient.java)*)
 
