@@ -8,4 +8,4 @@
  */
 
 rootProject.name = "eureka-example"
-include("service-a", "service-b", "eureka")
+include("eureka-client-a", "eureka-client-b", "eureka-server")

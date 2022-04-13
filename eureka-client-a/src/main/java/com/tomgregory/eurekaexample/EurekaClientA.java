@@ -6,8 +6,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class ServiceB {
+public class EurekaClientA {
     public static void main(String[] args) {
-        SpringApplication.run(ServiceB.class);
+        SpringApplication.run(EurekaClientA.class);
     }
 }

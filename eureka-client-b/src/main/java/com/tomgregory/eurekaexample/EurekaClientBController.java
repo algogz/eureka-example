@@ -4,20 +4,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ServiceAController {
-    private ServiceBClient serviceBClient;
+public class EurekaClientBController {
+    private EurekaClientAClient serviceAClient;
 
-    public ServiceAController(ServiceBClient serviceBClient) {
-        this.serviceBClient = serviceBClient;
+    public EurekaClientBController(EurekaClientAClient serviceAClient) {
+        this.serviceAClient = serviceAClient;
     }
 
     @GetMapping(path = "whoami")
     public String whoami() {
-        return "You are calling serrvice-a!";
+        return "You are calling serrvice-b!";
     }
 
     @GetMapping(path = "call")
     public String call() {
-        return serviceBClient.whoami();
+        return serviceAClient.whoami();
     }
 }

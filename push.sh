@@ -1,15 +1,13 @@
 #!/bin/bash
 
-aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 299404798587.dkr.ecr.eu-west-1.amazonaws.com
+echo "Pushing eureka-server"
+docker tag eureka-server:latest tkgregory/eureka-server:latest
+docker push tkgregory/eureka-server:latest
 
-echo "Pushing eureka"
-docker tag eureka:latest 299404798587.dkr.ecr.eu-west-1.amazonaws.com/eureka:latest
-docker push 299404798587.dkr.ecr.eu-west-1.amazonaws.com/eureka:latest
+echo "Pushing eureka-client-a"
+docker tag eureka-client-a:latest tkgregory/eureka-client-a:latest
+docker push tkgregory/eureka-client-a:latest
 
-echo "Pushing service-a"
-docker tag service-a:latest 299404798587.dkr.ecr.eu-west-1.amazonaws.com/service-a:latest
-docker push 299404798587.dkr.ecr.eu-west-1.amazonaws.com/service-a:latest
-
-echo "Pushing service-b"
-docker tag service-b:latest 299404798587.dkr.ecr.eu-west-1.amazonaws.com/service-b:latest
-docker push 299404798587.dkr.ecr.eu-west-1.amazonaws.com/service-b:latest
+echo "Pushing eureka-client-b"
+docker tag eureka-client-b:latest tkgregory/eureka-client-b:latest
+docker push tkgregory/eureka-client-b:latest

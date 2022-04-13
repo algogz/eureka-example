@@ -1,22 +1,22 @@
 services:
-  eureka:
-    image: eureka:latest
+  eureka-server:
+    image: eureka-server:latest
     ports:
       - "8761:8761"
     networks:
       - backend
-  service-a:
-    image: service-a:latest
+  eureka-client-a:
+    image: eureka-client-a:latest
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka:8761/eureka"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka-server:8761/eureka"
     ports:
       - "8081:8081"
     networks:
       - backend
-  service-b:
-    image: service-b:latest
+  eureka-client-b:
+    image: eureka-client-b:latest
     environment:
-      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka:8761/eureka"
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: "http://eureka-server:8761/eureka"
     ports:
       - "8082:8082"
     networks:

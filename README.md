@@ -1,4 +1,4 @@
-An example Eureka setup with a Eureka server and 2 microservices.
+An example Eureka setup with a Eureka server and 2 client microservices.
 
 # Running
 
@@ -13,19 +13,19 @@ Start the Docker Compose environment:
 # Testing
 
 View the Eureka dashboard at [http://localhost:8761](http://localhost:8761).
-You should see 2 instances listed, *SERVICE-A* and *SERVICE-B*.
+You should see 2 instances listed, *EUREKA-CLIENT-A* and *EUREKA-CLIENT-B*.
 
-## service-a
+## eureka-client-a
 * view status at [http://localhost:8081/actuator/health](http://localhost:8081/actuator/health)
-* make call from *service-a* > *service-b* at [http://localhost:8081/call](http://localhost:8081/call)
+* make call from *eureka-client-a* > *eureka-client-b* at [http://localhost:8081/call](http://localhost:8081/call)
 
-## service-b
+## eureka-client-b
 * view status at [http://localhost:8082/actuator/health](http://localhost:8082/actuator/health)
-* make call from *service-b* > *service-a* at [http://localhost:8082/call](http://localhost:8082/call)
+* make call from *eureka-client-b* > *eureka-client-a* at [http://localhost:8082/call](http://localhost:8082/call)
 
 ## Implementation details
 
-* all containers run in the same network, so they can address each other by hostname (e.g. *eureka*, *service-a*, *service-b*)
+* all containers run in the same network, so they can address each other by hostname (e.g. *eureka*, *eureka-client-a*, *eureka-client-b*)
 * each service registers itself with Eureka, located via property `eureka.client.serviceUrl.defaultZone`
-* a service calls the other service using Eureka service discovery using *feign client* (e.g. see [ServiceBClient](service-a\src\main\java\com\tomgregory\eurekaexample\ServiceBClient.javajava/com/tomgregory/eurekaexample/ServiceBClient.java))
+* a service calls the other service using Eureka service discovery using *feign client* (e.g. see [ServiceBClient](eureka-client-a\src\main\java\com\tomgregory\eurekaexample\ServiceBClient.javajava/com/tomgregory/eurekaexample/ServiceBClient.java))
 
