@@ -1,3 +1,5 @@
+[![CI](https://github.com/tkgregory/eureka-example/actions/workflows/gradle.yml/badge.svg)](https://github.com/tkgregory/eureka-example/actions/workflows/gradle.yml)
+
 An example Eureka setup with a Eureka server and 2 client microservices.
 
 # Running
