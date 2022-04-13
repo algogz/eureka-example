@@ -14,6 +14,8 @@ Start the Docker Compose environment:
 
 `docker-compose up`
 
+**Note: you may need to wait some time before the following steps work.**
+
 # Testing
 
 View the Eureka dashboard at [http://localhost:8761](http://localhost:8761).
@@ -29,7 +31,7 @@ You should see 2 instances listed, *EUREKA-CLIENT-A* and *EUREKA-CLIENT-B*.
 
 ## Implementation details
 
-* all containers run in the same network, so they can address each other by hostname (e.g. *eureka*, *eureka-client-a*, *eureka-client-b*)
-* each service registers itself with Eureka, located via property `eureka.client.serviceUrl.defaultZone`
-* a service calls the other service using Eureka service discovery using *feign client* (e.g. see [ServiceBClient](eureka-client-a\src\main\java\com\tomgregory\eurekaexample\ServiceBClient.javajava/com/tomgregory/eurekaexample/ServiceBClient.java))
+* all containers run in the same network, so they can address each other by hostname (e.g. *eureka-client*, *eureka-client-a*, *eureka-client-b*)
+* each Eureka client registers itself with the Eureka server, located via property `eureka.client.serviceUrl.defaultZone`
+* a Eureka client calls the other Eureka client through Eureka service discovery using a *feign client* (e.g. see [ServiceBClient](eureka-client-a\src\main\java\com\tomgregory\eurekaexample\ServiceBClient.javajava/com/tomgregory/eurekaexample/ServiceBClient.java))
 
