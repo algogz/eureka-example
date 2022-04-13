@@ -1,6 +1,8 @@
 [![CI](https://github.com/tkgregory/eureka-example/actions/workflows/gradle.yml/badge.svg)](https://github.com/tkgregory/eureka-example/actions/workflows/gradle.yml)
 
-An example Eureka setup with a Eureka server and 2 client microservices.
+An example Eureka setup with a Eureka server and 2 client microservices. 
+
+This repository accompanies the article [How to Deploy Eureka into AWS ECS](https://tomgregory.com/how-to-deploy-eureka-into-aws-ecs/).
 
 # Running
 
